@@ -1,0 +1,114 @@
+td {
+	border: 1px inset white;
+	text-align: center;
+  }
+  th {
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 15px;
+	border: 1px rgb(180, 180, 180) solid;
+  }
+  
+  tr {
+	border: 1px rgb(180, 180, 180) solid !important;
+  }
+  
+  .div-valid {
+	text-align: center;
+	vertical-align: middle;
+  
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0px;
+	display: table-cell;
+	height: 100%;
+	width: 100%;
+  
+	position: absolute;
+	right: 0;
+	top: 0;
+  
+	/*background: rgba(52, 123, 247, 0.38);*/
+	background: rgba(62, 207, 69, 0.534);
+  }
+  
+  .div-waiting {
+	background: rgba(247, 183, 64, 0.534);
+  }
+  .div-waiting-no-id {
+	background: rgba(122, 122, 255, 0.2);
+  }
+  .div-box {
+	text-align: center;
+	vertical-align: middle;
+  
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0px;
+  
+	display: table-cell;
+	height: 100%;
+	width: 100%;
+  
+	position: absolute;
+	right: 0;
+	top: 0;
+  }
+  
+  tbody {
+	width: 100%; /* Just for the demo          */
+	overflow-y: auto; /* Trigger vertical scroll    */
+	overflow-x: hidden; /* Hide the horizontal scroll */
+  }
+  
+  .reej-color {
+	background-color: rgb(38, 25, 88) !important;
+	color: white;
+	text-align: center !important;
+	font-weight: bold;
+  }
+  .reej-weeks {
+	background-color: rgb(66 53 139 / 86%) !important;
+	color: white;
+	text-align: center !important;
+	font-weight: bold;
+  }
+  
+  .reej-table {
+	border-style: double;
+	border-color: rgb(38, 25, 88);
+	font-weight: bold;
+	font-size: 16px;
+	/* table-layout: fixed; */
+	margin-left: auto;
+	margin-right: auto;
+	width: auto;
+  }
+  
+  .reej-remove-border {
+	border: none;
+  }
+  
+  .reej-input {
+	border: none !important;
+  }
+  
+  .reej-label-row {
+	font-size: 16px;
+  }
+  
+  .content-table {
+	width: 80%;
+	height: 80%;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  .reej-column-width {
+	width: 10% !important;
+  }
+  
+  .picklist-lot{
+	background-color: white;
+  }

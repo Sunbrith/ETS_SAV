@@ -1,0 +1,124 @@
+<!--
+    @description       : 
+    @author            : JBBARTHELEMY
+    @group             : 
+    @last modified on  : 15/09/2021
+    @last modified by  : JBBARTHELEMY
+-->
+<template>
+    <div class="spinner">
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+            </lightning-spinner>
+        </template>
+    </div>
+    <div class="content-table">
+        <lightning-layout-item padding="horizontal-medium">
+            <div class="slds-p-bottom_xx-large">
+                <div class="slds-is-relative slds-card slds-card_boundary reej-remove-border">
+                    <table class=" slds-table reej-table">
+                        <!-- slds-table_cell-buffer slds-table_bordered -->
+                        <thead class="reej-table">
+                            <tr class="reej-color">
+                                <td class="picklist-lot">
+                                    <c-picklist-reusable data-name={buttonLabel1} set-label={buttonLabel1}
+                                        set-icon-name='custom:custom57' set-attribute-to-return='id'
+                                        set-elements-list={StaffingsNotDisplay} onselectedvaluechange={handleSelected}>
+                                    </c-picklist-reusable>
+                                </td>
+                                <td scope="row">
+                                    Total Jours
+                                </td>
+                                <template for:each={SommeParJour} for:item="sum">
+                                    <td key={sum.key}>
+                                        {sum.value.sommeJour}
+                                        <template if:true={sum.value.message}>
+                                            <lightning-icon icon-name="utility:warning" variant="warning" size="small"
+                                                class="slds-float_right" alternative-text="Warning!"
+                                                title="La somme doit être égale à 1">
+                                            </lightning-icon>
+                                        </template>
+                                    </td>
+                                </template>
+                                <td class="reej-color">{TotalSomme}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="col" class="reej-weeks">
+                                    Projets
+                                </th>
+                                <th scope="col" class="reej-weeks">
+                                    Lots
+                                </th>
+                                <template for:each={daysend} for:item="dat">
+                                    <th key={dat} scope="col" class="reej-weeks reej-column-width">
+                                        {dat}
+                                    </th>
+                                </template>
+                                <th scope="col" class="reej-weeks" style="width:5%;">
+                                    Total
+                                </th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <template for:each={StaffingsDisplay} for:item="staff">
+                                <tr class=" slds-card slds-card_boundary" key={staff.id}>
+                                    <th scope="row" class="reej-label-row">
+                                        {staff.projectName}
+                                    </th>
+                                    <th scope="row" class="reej-label-row">
+                                        {staff.lotName}
+                                    </th>
+                                    <template for:each={staff.inputationValues} for:item="imp">
+
+                                        <td key={imp.key} class="reej-input">
+                                            <template if:true={imp.value}>
+                                                <template if:true={imp.value.isFreeze}>
+                                                    <div class="div-valid slds-p-vertical_medium">
+                                                        <div class="div-text-valid">{imp.value.CRA_TimeSpent__c}
+                                                        </div>
+
+                                                    </div>
+                                                </template>
+                                                <template if:false={imp.value.isFreeze}>
+                                                    <template if:true={imp.value.isWaiting}>
+                                                        <template if:false={imp.value.Id}>
+                                                            <div
+                                                                class="div-waiting-no-id div-box  slds-p-around_x-small">
+                                                                <c-box imputation={imp.value}
+                                                                    oncallpasstoparent={passToParent}></c-box>
+                                                            </div>
+                                                        </template>
+                                                        <template if:true={imp.value.Id}>
+                                                            <div class="div-waiting div-box   slds-p-around_x-small">
+                                                                <c-box imputation={imp.value}
+                                                                    oncallpasstoparent={passToParent}></c-box>
+                                                            </div>
+                                                        </template>
+                                                    </template>
+                                                    <template if:false={imp.value.isWaiting}>
+                                                        <div class="div-pick div-box  slds-p-around_x-small">
+                                                            <c-box imputation={imp.value}
+                                                                oncallpasstoparent={passToParent}></c-box>
+                                                        </div>
+                                                    </template>
+                                                </template>
+                                            </template>
+                                        </td>
+                                    </template>
+
+                                    <td class="reej-weeks">{staff.sommeStaffing}</td>
+                                </tr>
+                            </template>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </lightning-layout-item>
+    </div>
+
+</template>
