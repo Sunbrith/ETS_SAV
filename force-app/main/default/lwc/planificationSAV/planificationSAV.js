@@ -1,5 +1,5 @@
 import { LightningElement, api } from 'lwc';
-export default class Planif extends LightningElement {
+export default class planificationSAV extends LightningElement {
     value = "fs";
     @api
     tableData = [
@@ -23,4 +23,14 @@ export default class Planif extends LightningElement {
     tableData2 = [{ name: "Arthur Song", createdBy: "John H.", code: "CM", Name: "DD", details: "C 620 1146" }, { code: "P", Name: "SADMSON", details: "C1240 M X 2" }];
     @api
     columns2 = [{ label: "Code", type: "text", fieldName: "code", typeAttributes: {}, cellAttributes: {} }, { label: "Nom", type: "text", fieldName: "Name", typeAttributes: {}, cellAttributes: {} }, { typeAttributes: {}, cellAttributes: {}, label: "Details", type: "text", fieldName: "details" }];
+
+    renderedCallback(){
+        console.log('test');
+    }
+
+    @api
+    interventions = [
+        { Client: "0003860", Nom: "ETS", CP: "93110 ROSNY-SOUS-BOIS", Solde: "-3568.3", Date: "22/09/21", Heure: "06:00", Type: "S.A.V G", Qualité: "A+", Technicien: "AA", Description: "Une description" },
+        
+    ];
 }
