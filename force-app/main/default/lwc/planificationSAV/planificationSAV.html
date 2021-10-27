@@ -1,17 +1,17 @@
 <!--
     @description       : 
     @author            : JBBARTHELEMY // SANDERSEN
-    @last modified on  : 26/10/2021
+    @last modified on  : 27/10/2021
     @last modified by  : SANDERSEN
 -->
 
 <template>
     <lightning-card title="Planning intervention" icon-name="standard:work_plan">
         <div slot="footer">
-            <lightning-button-group>
-                <lightning-button label="Annuler"></lightning-button>
-                <lightning-button variant="brand" label="Valider"></lightning-button>
-            </lightning-button-group>
+            <div class="slds-button-group" role="group">
+                <button class="slds-button slds-button_outline-brand">Annuler</button>
+                <button class="slds-button slds-button_brand">Valider</button>
+            </div>    
         </div>
         <div class="slds-card__body_inner">
             <lightning-layout pull-to-boundary="medium" multiple-rows="true">
