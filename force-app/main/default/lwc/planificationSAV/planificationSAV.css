@@ -91,15 +91,12 @@
 	padding: 15px; 
   }
 
-.SAVTableHeaderRow {
-	width: 100%;
-	height: auto;
-}
+table {
+	table-layout:auto;
+	width:auto; 
 
-.SAVTableBody {
-	width: 100%;
-	height: auto;
-}
+  }
+
 
 th {
 	text-align: center;

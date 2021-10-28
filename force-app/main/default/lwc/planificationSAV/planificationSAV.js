@@ -1,13 +1,28 @@
-import getAccountInfo from '@salesforce/apex/PlanificationController.getAccountInfo';
-import { LightningElement, api, wire } from 'lwc';
+import { LightningElement, wire } from 'lwc';
+
+import CODE__C from '@salesforce/schema/Intervention__C.Code__c';
+import NAME from '@salesforce/schema/Intervention__C.Name';
+import InterventionDescription__c from '@salesforce/schema/Intervention__C.InterventionDescription__C';
+import getInterventions from '@salesforce/apex/InterventionController.getInterventions';
+
+const COLUMNS = [
+    { label: 'Code', fieldName: CODE__C.fieldApiName, type: 'text' },
+    { label: 'Nom', fieldName: NAME.fieldApiName, type: 'text' },
+    { label: 'Details', fieldName: InterventionDescription__c.fieldApiName, type: 'text' },
+]; 
+
 export default class planificationSAV extends LightningElement {
 
-  /*  var rowCount = $("#Table_id th").length; */
+    columns = COLUMNS;
+    @wire(getInterventions)
+    interventions; 
 
 
 
-    value = "fs";
-   /* @api
+   // value = "fs";
+   /*
+   Original hardcode by JB
+   @api
     tableData = [
         { CodeClient: "0003860", ClientNameAddress: "REGENT 6 RUE DE VERDUN", CpCity: "93110 ROSNY-SOUS-BOIS", Date: "22/09/21", Heure: "06:00", Type: "S.A.V G", Tech: "AA", Solde: "-3568.3" },
         { CodeClient: "0234512", ClientNameAddress: "REEJ 26 RUE ANATOLE FRANCE", CpCity: "92300 LEVALLOIS", Date: "22/09/21", Heure: "06:00", Type: "Ramonage", Tech: "JV", Solde: "100000" },
@@ -16,7 +31,7 @@ export default class planificationSAV extends LightningElement {
         { CodeClient: "0964512", ClientNameAddress: "HENRY 12 RUE PIERRE", CpCity: "93110 ROSNY-SOUS-BOIS", Date: "22/09/21", Heure: "06:00", Type: "S.A.V G", Tech: "AL", Solde: "3000" },
         { CodeClient: "0000123", ClientNameAddress: "BERNARD 78 RUE CHAPTAL", CpCity: "93110 ROSNY-SOUS-BOIS", Date: "22/09/21", Heure: "06:00", Type: "S.A.V G", Tech: "GD", Solde: "0" },
         { CodeClient: "0000001", ClientNameAddress: "GOMES 4 BD GALLIENI", CpCity: "94360 BRY SUR MARNE", Date: "22/09/21", Heure: "06:00", Type: "S.A.V G", Tech: "GD", Solde: "0" }
-    ]; */
+    ]; 
 
 
     @api
@@ -27,14 +42,15 @@ export default class planificationSAV extends LightningElement {
     tableData1 = [{ name: "Arthur Song", createdBy: "John H." }];
     @api
     columns1 = [{ label: "Name", type: "text", fieldName: "name" }, { label: "Created By", type: "text", fieldName: "createdBy" }];
+    
+    
+    
     @api
     tableData2 = [{ name: "Arthur Song", createdBy: "John H.", code: "CM", Name: "DD", details: "C 620 1146" }, { code: "P", Name: "SADMSON", details: "C1240 M X 2" }];
     @api
     columns2 = [{ label: "Code", type: "text", fieldName: "code", typeAttributes: {}, cellAttributes: {} }, { label: "Nom", type: "text", fieldName: "Name", typeAttributes: {}, cellAttributes: {} }, { typeAttributes: {}, cellAttributes: {}, label: "Details", type: "text", fieldName: "details" }];
+    
 
-    renderedCallback(){
-        console.log('test');
-    }
 
     @api
     interventions = [
@@ -42,13 +58,9 @@ export default class planificationSAV extends LightningElement {
         
     ];
 
+    */
 
-    /*@api
-    techniciens = [
-        {AL CC DM}
-    ]*/
-
-    @api recordId; 
-    @wire(getAccountInfo, {accountId: '$recordId'})
-    accounts;
+    renderedCallback(){
+        console.log('test');
+    }
 }
