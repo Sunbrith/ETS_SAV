@@ -7,7 +7,7 @@ const COLUMNS = [
     { label: 'Details', fieldName: 'interventionDescription', type: 'text' }
 ]; 
 
-export default class ContactList extends LightningElement {
+export default class InterventionList extends LightningElement {
 data;
 columns = COLUMNS;
     @wire(getInterventions)

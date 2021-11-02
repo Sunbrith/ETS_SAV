@@ -1,4 +1,22 @@
 <template>
+    <lightning-card>
+        <template if:true={data}>
+            <lightning-datatable
+                key-field="Id"
+                data={data}
+				show-row-number-column
+                row-number-offset={rowOffset}
+                hide-checkbox-column
+                columns={columns}
+            >
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
+
+
+
+<!-- <template>
 	<lightning-layout-item padding="around-small" size="8">
 		<lightning-layout>
 		<lightning-layout-item flexibility="auto" padding="horizontal-medium" size="8" small-device-size="12" medium-device-size="6" large-device-size="6">
@@ -39,4 +57,4 @@
 			</lightning-layout-item>
 		</lightning-layout>
 	</lightning-layout-item> 
-</template>
+</template> -->
