@@ -1,21 +1,28 @@
 import { LightningElement, wire } from 'lwc';
-
-import CODE__C from '@salesforce/schema/Intervention__C.Code__c';
-import NAME from '@salesforce/schema/Intervention__C.Name';
-import InterventionDescription__c from '@salesforce/schema/Intervention__C.InterventionDescription__C';
 import getInterventions from '@salesforce/apex/InterventionController.getInterventions';
 
 const COLUMNS = [
-    { label: 'Code', fieldName: CODE__C.fieldApiName, type: 'text' },
-    { label: 'Nom', fieldName: NAME.fieldApiName, type: 'text' },
-    { label: 'Details', fieldName: InterventionDescription__c.fieldApiName, type: 'text' },
+    { label: 'Code', fieldName: 'customerCode', type: 'text' },
+    { label: 'Nom', fieldName: 'name', type: 'text' },
+    { label: 'Details', fieldName: 'interventionDescription', type: 'text' }
 ]; 
 
 export default class planificationSAV extends LightningElement {
 
-    columns = COLUMNS;
+// Desription intervention table 
+data;
+columns = COLUMNS;
     @wire(getInterventions)
-    interventions; 
+    interventions(res){
+        if(res.data){
+            console.log(res.data);
+            this.data = res.data;
+        }
+    }; 
+
+    
+
+}
 
 
 
@@ -58,9 +65,9 @@ export default class planificationSAV extends LightningElement {
         
     ];
 
-    */
+    
 
     renderedCallback(){
         console.log('test');
     }
-}
+    */

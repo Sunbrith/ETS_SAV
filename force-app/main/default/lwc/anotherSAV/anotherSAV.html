@@ -1,9 +1,9 @@
 <template>
     <lightning-card>
-        <template if:true={interventions.data}>
+        <template if:true={data}>
             <lightning-datatable
                 key-field="Id"
-                data={interventions.data}
+                data={data}
                 columns={columns}
             >
             </lightning-datatable>

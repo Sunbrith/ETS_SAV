@@ -3,8 +3,8 @@
     <lightning-card title="Planning intervention" icon-name="standard:work_plan">
         <div slot="footer">
             <lightning-button-group>
-                <lightning-button label="Annuler" onclick={handleClick}></lightning-button>
-                <lightning-button variant="brand" label="Valider" onclick={handleClick}></lightning-button>
+                <lightning-button variant="base" label="Annuler" value={enterValueHere} onclick={handleAnnulerClick}></lightning-button>
+                <lightning-button variant="brand" label="Valider" value={enterValueHere} onclick={handleBtnValiderClick}></lightning-button>
             </lightning-button-group>
         </div>
 
@@ -113,7 +113,9 @@
                                             </table>
                                         </lightning-layout-item>
                                     </lightning-layout>
-                                </lightning-layout-item>    
+                                </lightning-layout-item>   
+                                
+                                
                             </lightning-layout>                         
                             </lightning-layout-item>
 
@@ -185,11 +187,11 @@
                                     </div>
                                 </lightning-card>
                                 
-                                <div class="description-inter">
-                                    <template if:true = {interventions.data}>
+                                <div class="">
+                                    <template if:true={data}>
                                     <lightning-datatable 
                                         key-field="Id" 
-                                        data={interventions.data} 
+                                        data={data}
                                         columns={columns} 
                                         hide-checkbox-column="true" 
                                         show-row-number-column="true">
