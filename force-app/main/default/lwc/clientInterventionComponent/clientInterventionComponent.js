@@ -1,6 +1,7 @@
 import { LightningElement, wire} from 'lwc';
 import getInterventions from '@salesforce/apex/InterventionController.getInterventions';
 import getAppareilForAccount from '@salesforce/apex/InterventionController.getAppareilForAccount';
+import { NavigationMixin } from 'lightning/navigation';
 
 const COLUMNS = [
     { label: 'Code', fieldName: 'APCode__c', type: 'text' },
@@ -8,15 +9,18 @@ const COLUMNS = [
     { label: 'Details', fieldName: 'Type__c', type: 'text' }
 ]; 
 
-var intreventionIdExemple = 'a019E00000CsXRZQA3';
-export default class InterventionList extends LightningElement {
+var interventionIdExemple = 'a019E00000CsXRZQA3';
 
+export default class interventionComponent extends NavigationMixin(LightningElement) {	
+    
+nrAppareils;
 intervention;
 lstAppareil;
 columns = COLUMNS;
 
-    @wire(getInterventions, {interventionId : intreventionIdExemple})
+    @wire(getInterventions, {interventionId : interventionIdExemple})
     interventions({data, error}){
+        console.log(data);
         if(data){
             let tmp = JSON.parse(JSON.stringify(data));
             tmp.customerCode = tmp.Account__r.CustomerCode__c;
@@ -26,6 +30,7 @@ columns = COLUMNS;
             getAppareilForAccount({accountId : this.intervention.Account__c})
             .then(result => {
                 this.lstAppareil = result;
+                this.nrAppareils = this.lstAppareil.length; 
                 console.log(this.lstAppareil);
             })
             .catch(error => {
@@ -35,5 +40,16 @@ columns = COLUMNS;
             console.log(error);
             this.intervention = undefined;
         }
-    }; 
+    };
+
+    navigateToAccount(){
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: this.intervention.Account__c,
+                objectApiName: 'Account',
+                actionName: 'view'
+            },
+        });
+    }
 }

@@ -58,15 +58,6 @@ columns = COLUMNS;
     columns2 = [{ label: "Code", type: "text", fieldName: "code", typeAttributes: {}, cellAttributes: {} }, { label: "Nom", type: "text", fieldName: "Name", typeAttributes: {}, cellAttributes: {} }, { typeAttributes: {}, cellAttributes: {}, label: "Details", type: "text", fieldName: "details" }];
     
 
-
-    @api
-    interventions = [
-        {Id:"54545", Client: "0003860", Nom: "ETS", CP: "93110 ROSNY-SOUS-BOIS", Solde: "-3568.3", Date: "22/09/21", Heure: "06:00", Type: "S.A.V G", Qualité: "A+", Technicien: "AA", Description: "Une description" },
-        
-    ];
-
-    
-
     renderedCallback(){
         console.log('test');
     }

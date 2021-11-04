@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <lightning-card>
         <template if:true={data}>
             <lightning-datatable
@@ -12,35 +12,67 @@
             </lightning-datatable>
         </template>
     </lightning-card>
-</template>
+</template> -->
 
 
 
-<!-- <template>
-	<lightning-layout-item padding="around-small" size="8">
+<template>
+	<lightning-layout-item padding="around-small">
+		<div class="slds-size_3-of-4">
 		<lightning-layout>
-		<lightning-layout-item flexibility="auto" padding="horizontal-medium" size="8" small-device-size="12" medium-device-size="6" large-device-size="6">
-			<table id="Table-id" class="slds-table slds-table--bordered slds-table--cell-buffer slds-table--striped">
-				<thead class="">
-					<tr class="slds-line-height_reset">
-						<th scope="col">   </th>
-						<th scope="col">Client</th>
-						<th scope="col">Nom</th>
-						<th scope="col">CP</th>
-						<th scope="col">Solde</th>
-						<th scope="col">Date</th>
-						<th scope="col">Heure</th>
-						<th scope="col">Type</th>
-						<th scope="col">Qualité</th>
-						<th scope="col">Technicien</th>
-						<th scope="col">Description</th>
+		<lightning-layout-item flexibility="auto" padding="horizontal-medium">
+			<table id="Table-id" class="slds-table slds-table_cell-buffer slds-table_bordered">
+				<thead>
+						<th scope="col" class="slds-truncate" title="Client">Client</th>
+						<th scope="col" class="slds-truncate" title="Nom">Nom</th>
+						<th scope="col" class="slds-truncate" title="CP">CP</th>
+						<th scope="col" class="slds-truncate" title="Solde">Solde</th>
+						<th scope="col" class="slds-truncate" title="Date">Date</th>
+						<th scope="col" class="slds-truncate" title="Heure">Heure</th>
+						<th scope="col" class="slds-truncate" title="Type">Type</th>
+						<th scope="col" class="slds-truncate" title="Qualification">Qualification</th>
+						<th scope="col" class="slds-truncate" title="Technicien">Technicien</th>
+						<th scope="col" class="slds-truncate" title="Description">Description</th>
 					</tr>
 				</thead>
 				<tbody>
 					<template for:each={interventions} for:item="interv">
-						<tr class="" key={interv.Id}>
-							<th scope="row" class="slds-truncate">{interv.count}</th>
-							<th scope="row" class="slds-truncate">{interv.Client}</th>
+						<tr class="slds-hint-parent" key={interv.Id}>
+							<th data-label="Client" scope="row">
+								<div class="slds-truncate" title="Client">
+									<a href="#" tabindex="-1">Client</a>
+								</div>
+							</th>
+							<td data-label="Nom">
+								<div class="slds-truncate" title="Nom">Nom</div>
+							</td>
+							<td data-label="CP">
+								<div class="slds-truncate" title="CP">CP</div>
+							</td>
+							<td data-label="Solde">
+								<div class="slds-truncate" title="Solde">Solde</div>
+							</td>
+							<td data-label="Date">
+								<div class="slds-truncate" title="Date">Date</div>
+							</td>
+							<td data-label="Heure">
+								<div class="slds-truncate" title="Heure">Heure</div>
+							</td>
+							<td data-label="Type">
+								<div class="slds-truncate" title="Type">Type</div>
+							</td>
+							<td data-label="Qualification">
+								<div class="slds-truncate" title="Qualification">Qualification</div>
+							</td>
+							<td data-label="Technicien">
+								<div class="slds-truncate" title="Technicien">Technicien</div>
+							</td>
+							<td data-label="Description">
+								<div class="slds-truncate" title="Description">Description
+								    <a href="#" tabindex="-1">Description</a>
+								</div>
+							</td>
+							<!-- <td scope="row" class="slds-truncate">{interv.Client}</td>
 							<th scope="row" class="slds-truncate">{interv.Nom}</th>
 							<th scope="row" class="slds-truncate">{interv.CP}</th>
 							<th scope="row" class="slds-truncate">{interv.Solde}</th>
@@ -49,12 +81,13 @@
 							<th scope="row" class="slds-truncate">{interv.Type}</th>
 							<th scope="row" class="slds-truncate">{interv.Qualité}</th>
 							<th scope="row" class="slds-truncate">{interv.Technicien}</th>
-							<th scope="row" class="slds-truncate">{interv.Description}</th>
+							<th scope="row" class="slds-truncate">{interv.Description}</th> -->
 						</tr>
 					</template>
 				</tbody>
 				</table>
 			</lightning-layout-item>
 		</lightning-layout>
+	</div>
 	</lightning-layout-item> 
-</template> -->
+</template> 
