@@ -1,24 +1,15 @@
-<!--
-    @description       : 
-    @author            : JBBARTHELEMY // SANDERSEN
-    @last modified on  : 27/10/2021
-    @last modified by  : SANDERSEN
--->
-
 <template>
-    <!-- Changer lightning-card to class="slds-card" ? -->
     <lightning-card title="Planning intervention" icon-name="standard:work_plan">
         <div slot="footer">
-            <div class="slds-button-group" role="group">
-                <button class="slds-button slds-button_outline-brand" onclick={handleClick}>Annuler</button>
-                <button class="slds-button slds-button_brand" onclick={handleClick}>Valider</button>
-            </div>    
+            <lightning-button-group>
+                <lightning-button label="Annuler"></lightning-button>
+                <lightning-button variant="brand" label="Valider"></lightning-button>
+            </lightning-button-group>
         </div>
         <div class="slds-card__body_inner">
             <lightning-layout pull-to-boundary="medium" multiple-rows="true">
                 <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12" medium-device-size="6" large-device-size="6">
-                    <lightning-formatted-rich-text value = 
-                                                            "<strong>+TEC:</strong> {techniciens} AL CC DM
+                    <lightning-formatted-rich-text value="<strong>+TEC:</strong> AL CC DM
 </br>
 <strong>-TEC:</strong> AX FC SC YB
 </br>
@@ -41,13 +32,13 @@
                                     <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12" medium-device-size="6" large-device-size="6"><span class="span-2">Nombres de lignes: 7 </span>
                                         <ul class="ul-1 slds-button-group-row">
                                             <li class="li-1 slds-button-group-item">
-                                                <lightning-input type="radio" label="AM" name="options" value="AM" checked></lightning-input>
+                                                <lightning-input type="radio" label="AM" name="options" value="1" checked="true"></lightning-input>
                                             </li>
                                             <li class="li-2 slds-button-group-item">
-                                                <lightning-input type="radio" label="PM" name="options" value="PM"></lightning-input>
+                                                <lightning-input type="radio" label="PM" name="options" value="1"></lightning-input>
                                             </li>
                                             <li class="li-3 slds-button-group-item">
-                                                <lightning-input type="radio" label="Jour" name="options" value="All"></lightning-input>
+                                                <lightning-input type="radio" label="Jour" name="options" value="1"></lightning-input>
                                             </li>
                                         </ul>
                                     </lightning-layout-item>
@@ -57,7 +48,7 @@
                                                 <lightning-button-icon icon-name="utility:dash" variant="bare" alternative-text="Settings" size="large" type="button" class="button-icon-1"></lightning-button-icon>
                                             </li>
                                             <li class="li-2 slds-button-group-item reej-input-date">
-                                                <lightning-input type="date" name="input1" label="Date field with a predefined value" value="2020-09-07" variant="label-hidden" class="input-date"></lightning-input>
+                                                <lightning-input type="date" name="input1" variant="label-hidden" class="input-date" placeholder="22/09/2021"></lightning-input>
                                             </li>
                                             <li class="li-3 slds-button-group-item">
                                                 <lightning-button-icon icon-name="utility:add" variant="bare" alternative-text="Settings" size="large" type="button" class="button-icon-2"></lightning-button-icon>
@@ -65,46 +56,9 @@
                                         </ul>
                                     </lightning-layout-item>
                                 </lightning-layout>
-                                <div class="content-table slds-grid slds-gutters">
-                                    <div class="slds-col slds-size_2-of-3">
-                                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
-                                        <thead class="slds-line-height_reset">
-                                            <tr class="SAVTableHeaderRow">
-                                                <th scope="col">   </th>
-                                                <th scope="col">Client</th>
-                                                <th scope="col">Nom</th>
-                                                <th scope="col">CP</th>
-                                                <th scope="col">Solde</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Heure</th>
-                                                <th scope="col">Type</th>
-                                                <th scope="col">Qualité</th>
-                                                <th scope="col">Technicien</th>
-                                                <th scope="col">Description</th>
-                                            </tr>
-                                        </thead>
-                                    
-                                            <template for:each={interventions} for:item="interv">
-                                                <tr class="SAVTableBody" key={interv.Id}>
-                                                    <th scope="row" class="slds-truncate">{interv.count}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Client}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Nom}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.CP}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Solde}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Date}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Heure}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Type}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Qualité}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Technicien}</th>
-                                                    <th scope="row" class="slds-truncate">{interv.Description}</th>
-                                                </tr>
-                                            </template>
-                                    </table>
-                                    </div>
-                                </div>
+                                <lightning-datatable key-field="id" data={tableData} columns={columns} hide-checkbox-column="true" class="datatable-1"></lightning-datatable>
                             </lightning-layout-item>
                             <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12" medium-device-size="4" large-device-size="4">
-                                <div class="slds-col slds-size_1-of-3">
                                 <div class="client-details">
                                     <lightning-card title="Client" icon-name="standard:account" variant="base">
                                         <div slot="footer">
@@ -120,6 +74,7 @@
                                             </ul>
                                         </div>
                                         <div class="slds-card__body_inner">
+                                            <lightning-layout class="slds-wrap" multiple-rows="true">
                                                 <lightning-layout-item size="6">
                                                     <div class="slds-form-element   "><span class="span-4 slds-form-element__label">Code</span>
                                                         <div class="slds-form-element__control"><span class="slds-form-element__static">00001989</span></div>
@@ -172,9 +127,8 @@
                                     </div>
                                 </lightning-card>
                                 <div class="description-inter">
-                                    <table key-field="id" data={tableData2} columns={columns2} hide-checkbox-column="true" show-row-number-column="true"></table>
+                                    <lightning-datatable key-field="id" data={tableData2} columns={columns2} hide-checkbox-column="true" show-row-number-column="true"></lightning-datatable>
                                 </div>
-                            </div>
                             </lightning-layout-item>
                         </lightning-layout>
                     </div>
