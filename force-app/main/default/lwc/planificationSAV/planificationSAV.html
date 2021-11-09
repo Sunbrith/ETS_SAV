@@ -15,12 +15,12 @@
                     <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12"
                         medium-device-size="6" large-device-size="6">
                         <lightning-formatted-rich-text value="<strong>+TEC:</strong> AL CC DM
-</br>
-<strong>-TEC:</strong> AX FC SC YB
-</br>
-<strong>+CHA:</strong> AA CB JZ 
-</br>
-<strong>absent(s):</strong>"></lightning-formatted-rich-text>
+    </br>
+    <strong>-TEC:</strong> AX FC SC YB
+    </br>
+    <strong>+CHA:</strong> AA CB JZ 
+    </br>
+    <strong>absent(s):</strong>"> </lightning-formatted-rich-text>
                     </lightning-layout-item>
 
                     <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12"
@@ -32,129 +32,20 @@
 <span class=&quot;tabulation&quot;><strong>JV: </strong>0</span>"></lightning-formatted-rich-text>
                     </lightning-layout-item>
                     <div class="div-1">
-                        <div class="slds-grid slds-gutters">
-                            <div class="slds-col slds-size_1-of-3">
-
-                            <template if:true={intervention}>
-                                <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12"
-                                    medium-device-size="4" large-device-size="4">
-                                    <div class="client-details">
-                                        <lightning-card title="Client" icon-name="standard:account" variant="base">
-                                            <div slot="actions">
-                                                <ul class="slds-button-group-row">
-                                                    <li class="slds-button-group-item">
-                                                        <lightning-button-icon icon-name="utility:search"
-                                                            onclick={navigateToAccount} variant="border-filled"
-                                                            alternative-text="view" size="medium">
-                                                        </lightning-button-icon>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="slds-card__body_inner">
-                                                <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                    <lightning-layout-item size="6">
-                                                        <div class="slds-form-element   "><span
-                                                                class="span-4 slds-form-element__label">Code</span>
-                                                            <div class="slds-form-element__control">
-                                                                <span class="slds-form-element__static">
-                                                                    <p>{intervention.Account__r.CustomerCode__c}</p>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </lightning-layout-item>
-                                                    <lightning-layout-item size="6">
-                                                        <div class="slds-form-element   "><span
-                                                                class="span-6 slds-form-element__label">Nombre
-                                                                d'appareils</span>
-                                                            <div class="slds-form-element__control">
-                                                                <span class="slds-form-element__static">
-                                                                    <p>{nrAppareils}</p>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </lightning-layout-item>
-                                                </lightning-layout>
-                                                <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                    <lightning-layout-item size="6">
-                                                        <div class="slds-form-element   "><span
-                                                                class="span-5 slds-form-element__label">Téléphone</span>
-                                                            <div class="slds-form-element__control"><span
-                                                                    class="slds-form-element__static">
-                                                                    <p>{intervention.Account__r.Phone}</p>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </lightning-layout-item>
-                                                </lightning-layout>
-                                                <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                    <lightning-layout-item size="8">
-                                                        <div class="slds-form-element   "><span
-                                                                class="span-3 slds-form-element__label">Adresse</span>
-                                                            <div class="slds-form-element__control"><span
-                                                                    class="slds-form-element__static">
-                                                                    <p>{intervention.Account__r.AdditionalBillingAddress__c}
-                                                                    </p>
-                                                                </span></div>
-                                                            <lightning-formatted-address
-                                                                country={intervention.Account__r.BillingCountry}
-                                                                postal-code={intervention.Account__r.BillingPostalCode}
-                                                                street={intervention.Account__r.BillingStreet}
-                                                                city={intervention.Account__r.BillingCity}>
-                                                            </lightning-formatted-address>
-                                                        </div>
-                                                    </lightning-layout-item>
-                                                </lightning-layout>
-                                            </div>
-                                        </lightning-card>
-                                    </div>
-                                </lightning-layout-item>
-                                <lightning-card title="Description Intervention" icon-name="standard:maintenance_asset"
-                                    variant="base">
-                                    <div class="slds-card__body_inner">
-                                        <lightning-layout class="slds-wrap" multiple-rows="true">
-                                            <lightning-layout-item size="12">
-                                                <div class="slds-form-element   "><span
-                                                        class="slds-form-element__label">Commentaire</span>
-                                                    <div class="slds-form-element__control">
-                                                        <p>{intervention.Commentaires__c}</p>
-                                                    </div>
-                                                </div>
-                                            </lightning-layout-item>
-                                        </lightning-layout>
-                                        <lightning-layout class="slds-wrap" multiple-rows="true">
-                                            <lightning-layout-item size="12">
-                                                <div class="slds-form-element   "><span
-                                                        class="slds-form-element__label">Matériel fourni</span>
-                                                    <div class="slds-form-element__control">
-                                                        <template for:each={intervention.Materiels_Fournis__r}
-                                                            for:item="mat">
-                                                            <p key={mat.Id}>{mat.Name}</p>
-                                                        </template>
-                                                    </div>
-                                                </div>
-                                            </lightning-layout-item>
-                                        </lightning-layout>
-                                    </div>
-                                </lightning-card>
-                                <lightning-card>
-                                    <lightning-datatable key-field="Id" data={lstAppareil} show-row-number-column
-                                        hide-checkbox-column columns={columns}>
-                                    </lightning-datatable>
-                                </lightning-card>
-                            </template>
-                            <div class="slds-col slds-size_2-of-3 ">
-                            <!-- <div class="slds-size_3-of-4"> -->
+                        <div class="div-3 slds-grid slds-gutters slds-clearfix">
+                            <div class="slds-col slds-size_2-of-3">
                                 <lightning-layout pull-to-boundary="medium" multiple-rows="true">
-                                    <lightning-layout-item padding="horizontal-medium" size="12">
+                                    <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12"
+                                        medium-device-size="8" large-device-size="8">
                                         <lightning-layout pull-to-boundary="medium" multiple-rows="true"
                                             class="layout-1">
-                                            <lightning-layout-item flexibility="auto" padding="horizontal-medium"
-                                                size="12" small-device-size="12" medium-device-size="6"
-                                                large-device-size="6"><span class="span-2">Nombres de lignes: 7 </span>
+                                            <lightning-layout-item padding="horizontal-medium" size="12"
+                                                small-device-size="12" medium-device-size="6" large-device-size="6">
+                                                <span class="span-2">Nombres de lignes: 7 </span>
                                                 <ul class="ul-1 slds-button-group-row">
                                                     <li class="li-1 slds-button-group-item">
                                                         <lightning-input type="radio" label="AM" name="options"
-                                                            value="1" checked></lightning-input>
+                                                            value="1"></lightning-input>
                                                     </li>
                                                     <li class="li-2 slds-button-group-item">
                                                         <lightning-input type="radio" label="PM" name="options"
@@ -166,7 +57,6 @@
                                                     </li>
                                                 </ul>
                                             </lightning-layout-item>
-
                                             <lightning-layout-item padding="around-small">
                                                 <lightning-layout>
                                                     <lightning-button-group
@@ -192,330 +82,216 @@
                                                     </lightning-button-group>
                                                 </lightning-layout>
                                             </lightning-layout-item>
-                                            <lightning-layout-item padding="around-small">
-                                                    <lightning-layout>
-                                                        <lightning-layout-item flexibility="auto"
-                                                            padding="horizontal-medium">
-                                                            <table id="Table-id"
-                                                                class="slds-table slds-table_cell-buffer slds-table_bordered">
-                                                                <!-- <thead> -->
-                                                                <tr>
-                                                                    <th scope="col" class="slds-truncate"
-                                                                        title="Client">Client</th>
-                                                                    <th scope="col" class="slds-truncate" title="Nom">
-                                                                        Nom</th>
-                                                                    <th scope="col" class="slds-truncate" title="CP">CP
-                                                                    </th>
-                                                                    <th scope="col" class="slds-truncate" title="Solde">
-                                                                        Solde</th>
-                                                                    <th scope="col" class="slds-truncate" title="Date">
-                                                                        Date</th>
-                                                                    <th scope="col" class="slds-truncate" title="Heure">
-                                                                        Heure</th>
-                                                                    <th scope="col" class="slds-truncate" title="Type">
-                                                                        Type</th>
-                                                                    <th scope="col" class="slds-truncate"
-                                                                        title="Qualification">Qualification</th>
-                                                                    <th scope="col" class="slds-truncate"
-                                                                        title="Technicien">Technicien</th>
-                                                                    <th scope="col" class="slds-truncate"
-                                                                        title="Description">Description</th>
-                                                                </tr>
-                                                                <!-- </thead> -->
+                                        </lightning-layout>
+                                        <div class="slds-col slds-size_2-of-3 ">
+                                            <lightning-layout pull-to-boundary="medium" multiple-rows="true">
+                                                <lightning-layout-item padding="horizontal-medium" size="12">
+                                                    <lightning-layout pull-to-boundary="medium" multiple-rows="true"
+                                                        class="layout-1">
+                                                        <lightning-layout-item padding="around-small">
+                                                            <lightning-layout>
+                                                                <lightning-layout-item flexibility="auto"
+                                                                    padding="horizontal-medium">
+                                                                    <table id="Table-id"
+                                                                        class="slds-table slds-table_cell-buffer slds-table_bordered">
+                                                                        <tr>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Client">Client</th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Nom">
+                                                                                Nom</th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="CP">CP
+                                                                            </th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Solde">
+                                                                                Solde</th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Date">
+                                                                                Date</th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Heure">
+                                                                                Heure</th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Type">
+                                                                                Type</th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Qualification">Qualification</th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Technicien">Technicien</th>
+                                                                            <th scope="col" class="slds-truncate"
+                                                                                title="Description">Description</th>
+                                                                        </tr>
 
-                                                                <tbody>
-                                                                    <template if:true={dailyInterventions}>
-                                                                        <template for:each={dailyInterventions}
-                                                                            for:item="interv">
-                                                                            <tr class="slds-card slds-card_boundary"
-                                                                                key={interv.id}>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.client}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.nom}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.cp}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.solde}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.interventionDate}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.interventionTime}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.type}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.qualification}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.technicien}</td>
-                                                                                <td scope="row" class="slds-truncate">
-                                                                                    {interv.description}</td>
-                                                                            </tr>
-                                                                        </template>
-                                                                    </template>
-                                                                </tbody>
-                                                            </table>
+                                                                        <tbody>
+                                                                            <template if:true={dailyInterventions}>
+                                                                                <template for:each={dailyInterventions}
+                                                                                    for:item="interv">
+                                                                                    <tr class="slds-card slds-card_boundary"
+                                                                                        key={interv.id}>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.client}</td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.nom}</td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.cp}</td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.solde}</td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.interventionDate}
+                                                                                        </td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.interventionTime}
+                                                                                        </td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.type}</td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.qualification}</td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.technicien}</td>
+                                                                                        <td scope="row"
+                                                                                            class="slds-truncate">
+                                                                                            {interv.description}</td>
+                                                                                    </tr>
+                                                                                </template>
+                                                                            </template>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </lightning-layout-item>
+                                                            </lightning-layout>
                                                         </lightning-layout-item>
                                                     </lightning-layout>
+                                                </lightning-layout-item>
+                                            </lightning-layout>
+                                        </div>
+                                        <template if:true={intervention}>
+                                            <div class="slds-float_right">
+                                            <lightning-layout-item padding="horizontal-medium" size="6"
+                                                small-device-size="12" medium-device-size="6" large-device-size="6">
+                                                <div class="client-details">
+                                                    <div class="slds-float_right"></div>
+                                                    <lightning-card title="Client" icon-name="standard:account"
+                                                        variant="base">
+                                                        <div slot="actions">
+                                                            <ul class="slds-button-group-row">
+                                                                <li class="slds-button-group-item">
+                                                                    <lightning-button-icon icon-name="utility:search"
+                                                                        onclick={navigateToAccount}
+                                                                        variant="border-filled" alternative-text="view"
+                                                                        size="medium">
+                                                                    </lightning-button-icon>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="slds-card__body_inner">
+                                                            <lightning-layout class="slds-wrap" multiple-rows="true">
+                                                                <lightning-layout-item size="6">
+                                                                    <div class="slds-form-element   "><span
+                                                                            class="span-4 slds-form-element__label">Code</span>
+                                                                        <div class="slds-form-element__control">
+                                                                            <span class="slds-form-element__static">
+                                                                                <p>{intervention.Account__r.CustomerCode__c}
+                                                                                </p>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </lightning-layout-item>
+                                                                <lightning-layout-item size="6">
+                                                                    <div class="slds-form-element   "><span
+                                                                            class="span-6 slds-form-element__label">Nombre
+                                                                            d'appareils</span>
+                                                                        <div class="slds-form-element__control">
+                                                                            <span class="slds-form-element__static">
+                                                                                <p>{nrAppareils}</p>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </lightning-layout-item>
+                                                            </lightning-layout>
+                                                            <lightning-layout class="slds-wrap" multiple-rows="true">
+                                                                <lightning-layout-item size="6">
+                                                                    <div class="slds-form-element   "><span
+                                                                            class="span-5 slds-form-element__label">Téléphone</span>
+                                                                        <div class="slds-form-element__control"><span
+                                                                                class="slds-form-element__static">
+                                                                                <p>{intervention.Account__r.Phone}</p>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </lightning-layout-item>
+                                                            </lightning-layout>
+                                                            <lightning-layout class="slds-wrap" multiple-rows="true">
+                                                                <lightning-layout-item size="6">
+                                                                    <div class="slds-form-element   "><span
+                                                                            class="span-3 slds-form-element__label">Adresse</span>
+                                                                        <div class="slds-form-element__control"><span
+                                                                                class="slds-form-element__static">
+                                                                                <p>{intervention.Account__r.AdditionalBillingAddress__c}
+                                                                                </p>
+                                                                            </span></div>
+                                                                        <lightning-formatted-address
+                                                                            country={intervention.Account__r.BillingCountry}
+                                                                            postal-code={intervention.Account__r.BillingPostalCode}
+                                                                            street={intervention.Account__r.BillingStreet}
+                                                                            city={intervention.Account__r.BillingCity}>
+                                                                        </lightning-formatted-address>
+                                                                    </div>
+                                                                </lightning-layout-item>
+                                                            </lightning-layout>
+                                                        </div>
+                                                    </lightning-card>
+                                                </div>
                                             </lightning-layout-item>
-                                        </lightning-layout>
+                                            <lightning-card title="Description Intervention"
+                                                icon-name="standard:maintenance_asset" variant="base">
+                                                <div class="slds-card__body_inner">
+                                                    <lightning-layout class="slds-wrap" multiple-rows="true">
+                                                        <lightning-layout-item size="6">
+                                                            <div class="slds-form-element   "><span
+                                                                    class="slds-form-element__label">Commentaire</span>
+                                                                <div class="slds-form-element__control">
+                                                                    <p>{intervention.Commentaires__c}</p>
+                                                                </div>
+                                                            </div>
+                                                        </lightning-layout-item>
+                                                    </lightning-layout>
+                                                    <lightning-layout class="slds-wrap" multiple-rows="true">
+                                                        <lightning-layout-item size="6">
+                                                            <div class="slds-form-element   "><span
+                                                                    class="slds-form-element__label">Matériel
+                                                                    fourni</span>
+                                                                <div class="slds-form-element__control">
+                                                                    <template
+                                                                        for:each={intervention.Materiels_Fournis__r}
+                                                                        for:item="mat">
+                                                                        <p key={mat.Id}>{mat.Name}</p>
+                                                                    </template>
+                                                                </div>
+                                                            </div>
+                                                        </lightning-layout-item>
+                                                    </lightning-layout>
+                                                </div>
+                                            </lightning-card>
+                                            <lightning-card>
+                                                <lightning-datatable key-field="Id" data={lstAppareil}
+                                                    show-row-number-column hide-checkbox-column columns={columns}>
+                                                </lightning-datatable>
+                                            </lightning-card>
+                                        </div>
+                                        </template>
                                     </lightning-layout-item>
                                 </lightning-layout>
                             </div>
-
-
-                            <!-- comment out this section below-->
-                            <!--
-                        <lightning-layout pull-to-boundary="medium" multiple-rows="true">
-                            <lightning-layout-item padding="horizontal-medium" size="12" >
-                                <lightning-layout pull-to-boundary="medium" multiple-rows="true" class="layout-1">
-                                    <lightning-layout-item flexibility="auto" padding="horizontal-medium" size="12" small-device-size="12" medium-device-size="6" large-device-size="6"><span class="span-2">Nombres de lignes: 7 </span>
-                                        <ul class="ul-1 slds-button-group-row">
-                                            <li class="li-1 slds-button-group-item">
-                                                <lightning-input type="radio" label="AM" name="options" value="1" checked></lightning-input>
-                                            </li>
-                                            <li class="li-2 slds-button-group-item">
-                                                <lightning-input type="radio" label="PM" name="options" value="1"></lightning-input>
-                                            </li>
-                                            <li class="li-3 slds-button-group-item">
-                                                <lightning-input type="radio" label="Jour" name="options" value="1"></lightning-input>
-                                            </li>
-                                        </ul>
-                                    </lightning-layout-item>
-
-
-
-
-                                    <lightning-layout-item flexibility="auto" padding="horizontal-medium" size="12" small-device-size="12" medium-device-size="6" large-device-size="6">
-                                        <ul class="ul-1 slds-button-group-row">
-                                            <li class="li-1 slds-button-group-item">
-                                                <lightning-button-icon icon-name="utility:dash" variant="bare" alternative-text="Settings" size="large" type="button" class="button-icon-1"></lightning-button-icon>
-                                            </li>
-                                            <li class="li-2 slds-button-group-item reej-input-date">
-                                                <lightning-input type="date" name="input1" label="Date field with a predefined value" value="2020-09-07" variant="label-hidden" class="input-date"></lightning-input>
-                                            </li>
-                                            <li class="li-3 slds-button-group-item">
-                                                <lightning-button-icon icon-name="utility:add" variant="bare" alternative-text="Settings" size="large" type="button" class="button-icon-2"></lightning-button-icon>
-                                            </li>
-                                        </ul>
-                                    </lightning-layout-item>
-
-
-                                    <lightning-layout-item padding="around-small" size="8">
-                                    <lightning-layout>
-                                    <lightning-layout-item flexibility="auto" padding="horizontal-medium" size="8" small-device-size="12" medium-device-size="6" large-device-size="6">
-                                        <table id="Table-id" class="">
-                                            <thead class="">
-                                                <tr class="SAVTableHeaderRow">
-                                                    <th scope="col">   </th>
-                                                    <th scope="col">Client</th>
-                                                    <th scope="col">Nom</th>
-                                                    <th scope="col">CP</th>
-                                                    <th scope="col">Solde</th>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Heure</th>
-                                                    <th scope="col">Type</th>
-                                                    <th scope="col">Qualité</th>
-                                                    <th scope="col">Technicien</th>
-                                                    <th scope="col">Description</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <template for:each={interventions} for:item="interv">
-                                                    <tr class="SAVTableBody" key={interv.Id}>
-                                                        <th scope="row" class="slds-truncate">{interv.count}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Client}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Nom}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.CP}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Solde}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Date}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Heure}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Type}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Qualité}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Technicien}</th>
-                                                        <th scope="row" class="slds-truncate">{interv.Description}</th>
-                                                    </tr>
-                                                </template>
-                                            </tbody>
-                                            </table>
-                                        </lightning-layout-item>
-                                    </lightning-layout>
-                                </lightning-layout-item>   
-                            </lightning-layout>                         
-                            </lightning-layout-item>
-
-                            <template if:true={intervention}>
-                                <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12" medium-device-size="4" large-device-size="4">
-                                    <div class="client-details">
-                                        <lightning-card title="Client" icon-name="standard:account" variant="base">
-                                            <div slot="actions">
-                                                <ul class="slds-button-group-row">
-                                                    <li class="slds-button-group-item">
-                                                            <lightning-button-icon icon-name="utility:search" onclick={navigateToAccount} variant="border-filled" alternative-text="view" size="medium"></lightning-button-icon>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="slds-card__body_inner">
-                                                <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                    <lightning-layout-item size="6">
-                                                        <div class="slds-form-element   "><span class="span-4 slds-form-element__label">Code</span>
-                                                            <div class="slds-form-element__control">
-                                                                <span class="slds-form-element__static">
-                                                                <p>{intervention.Account__r.CustomerCode__c}</p>
-                                                            </span>
-                                                        </div>
-                                                        </div>
-                                                    </lightning-layout-item>
-                                                    <lightning-layout-item size="6">
-                                                        <div class="slds-form-element   "><span class="span-6 slds-form-element__label">Nombre d'appareils</span>
-                                                            <div class="slds-form-element__control">
-                                                                <span class="slds-form-element__static">
-                                                                    <p>{nrAppareils}</p>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </lightning-layout-item>
-                                                </lightning-layout>
-                                                <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                    <lightning-layout-item size="6">
-                                                        <div class="slds-form-element   "><span class="span-5 slds-form-element__label">Téléphone</span>
-                                                            <div class="slds-form-element__control"><span class="slds-form-element__static">
-                                                                <p>{intervention.Account__r.Phone}</p>
-                                                            </span>
-                                                            </div>
-                                                        </div>
-                                                    </lightning-layout-item>
-                                                </lightning-layout>
-                                                <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                    <lightning-layout-item size="8">
-                                                        <div class="slds-form-element   "><span class="span-3 slds-form-element__label">Adresse</span>
-                                                            <div class="slds-form-element__control"><span class="slds-form-element__static">
-                                                                <p>{intervention.Account__r.AdditionalBillingAddress__c}</p>
-                                                            </span></div>
-                                                            <lightning-formatted-address country={intervention.Account__r.BillingCountry} postal-code={intervention.Account__r.BillingPostalCode} street={intervention.Account__r.BillingStreet} city={intervention.Account__r.BillingCity}></lightning-formatted-address>
-                                                        </div>
-                                                    </lightning-layout-item>
-                                                </lightning-layout>
-                                            </div>
-                                        </lightning-card>
-                                    </div>
-                                </lightning-layout-item>
-                                    <lightning-card title="Description Intervention" icon-name="standard:maintenance_asset" variant="base">
-                                        <div class="slds-card__body_inner">
-                                            <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                <lightning-layout-item size="12">
-                                                        <div class="slds-form-element   "><span class="slds-form-element__label">Commentaire</span>
-                                                        <div class="slds-form-element__control">
-                                                            <p>{intervention.Commentaires__c}</p>
-                                                        </div>
-                                                    </div>
-                                                </lightning-layout-item>
-                                            </lightning-layout>
-                                            <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                <lightning-layout-item size="12">
-                                                    <div class="slds-form-element   "><span class="slds-form-element__label">Matériel fourni</span>
-                                                        <div class="slds-form-element__control">
-                                                            <template for:each={intervention.Materiels_Fournis__r} for:item="mat">
-                                                                <p key={mat.Id}>{mat.Name}</p>
-                                                            </template>
-                                                        </div>
-                                                    </div>
-                                                </lightning-layout-item>
-                                            </lightning-layout>
-                                        </div>
-                                    </lightning-card>
-                                    <lightning-card>
-                                            <lightning-datatable
-                                                key-field="Id"
-                                                data={lstAppareil}
-                                                show-row-number-column
-                                                hide-checkbox-column
-                                                columns={columns}
-                                            >
-                                            </lightning-datatable>
-                                    </lightning-card>
-                                </template>
-                            <lightning-layout-item padding="horizontal-medium" size="12" small-device-size="12" medium-device-size="4" large-device-size="4">
-                                <div class="client-details">
-                                    <lightning-card title="Client" icon-name="standard:account" variant="base">
-                                        <div slot="actions">
-                                            <ul class="slds-button-group-row">
-                                                <li class="slds-button-group-item">
-                                                    <lightning-button-icon icon-name="utility:search" variant="border-filled" alternative-text="Settings" size="medium"></lightning-button-icon>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="slds-card__body_inner">
-                                            <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                <lightning-layout-item size="6">
-                                                    <div class="slds-form-element   "><span class="span-4 slds-form-element__label">Code</span>
-                                                        <div class="slds-form-element__control"><span class="slds-form-element__static">00001989</span></div>
-                                                    </div>
-                                                </lightning-layout-item>
-                                                <lightning-layout-item size="6">
-                                                    <div class="slds-form-element   "><span class="span-6 slds-form-element__label">Nombre d'appareils</span>
-                                                        <div class="slds-form-element__control"><span class="slds-form-element__static">9</span></div>
-                                                    </div>
-                                                </lightning-layout-item>
-                                            </lightning-layout>
-                                            <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                <lightning-layout-item size="6">
-                                                    <div class="slds-form-element   "><span class="span-5 slds-form-element__label">Téléphone</span>
-                                                        <div class="slds-form-element__control"><span class="slds-form-element__static">0147657846</span></div>
-                                                    </div>
-                                                </lightning-layout-item>
-                                            </lightning-layout>
-                                            <lightning-layout class="slds-wrap" multiple-rows="true">
-                                                <lightning-layout-item size="8">
-                                                    <div class="slds-form-element   "><span class="span-3 slds-form-element__label">Adresse</span>
-                                                        <div class="slds-form-element__control"><span class="slds-form-element__static">1/ COPRO 2A - RES. NORMANDIE</span></div>
-                                                        <lightning-formatted-address country="France" postal-code="93250" street="8-16 ALLEE DE 'ESPERANCE" city="VILLENOMBLE"></lightning-formatted-address>
-                                                    </div>
-                                                </lightning-layout-item>
-                                            </lightning-layout>
-                                        </div>
-                                    </lightning-card>
-                                </div>
-                                <lightning-card title="Description Intervention" icon-name="standard:maintenance_asset" variant="base">
-                                    <div class="slds-card__body_inner">
-                                        <lightning-layout class="slds-wrap" multiple-rows="true">
-                                            <lightning-layout-item size="12">
-                                                <div class="slds-form-element   "><span class="slds-form-element__label">Commentaire</span>
-                                                    <div class="slds-form-element__control">
-                                                        <lightning-formatted-rich-text value="Problème eau a peine tiède<br/>batiment D<br/>Contrôle chaufferie et réglages"></lightning-formatted-rich-text>
-                                                    </div>
-                                                </div>
-                                            </lightning-layout-item>
-                                        </lightning-layout>
-                                        <lightning-layout class="slds-wrap" multiple-rows="true">
-                                            <lightning-layout-item size="12">
-                                                <div class="slds-form-element   "><span class="slds-form-element__label">Matériel fourni</span>
-                                                    <div class="slds-form-element__control">
-                                                        <lightning-formatted-rich-text value="Boite à outils"></lightning-formatted-rich-text>
-                                                    </div>
-                                                </div>
-                                            </lightning-layout-item>
-                                        </lightning-layout>
-                                    </div>
-                                </lightning-card>
-                                
-                                <div class="">
-                                    <template if:true={data}>
-                                    <lightning-datatable 
-                                        key-field="Id" 
-                                        data={data}
-                                        columns={columns} 
-                                        hide-checkbox-column="true" 
-                                        show-row-number-column="true">
-                                    </lightning-datatable>
-                                </template>
-                                </div>
-                            </lightning-layout-item>
-                        </lightning-layout>
-                        -->
-
-
                         </div>
-                    </div>
                     </div>
                 </lightning-layout>
             </div>

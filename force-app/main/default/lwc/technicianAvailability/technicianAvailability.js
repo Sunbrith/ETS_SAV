@@ -1,11 +1,17 @@
-import { LightningElement, wire, track } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import getTechnicians from '@salesforce/apex/TechnicianController.getTechnicians';
 
+const COLUMNS = [
+    { label: '+TEC: ', fieldName: 'Alias', type: 'text' },
+    { label: '-TEC: ', fieldName: 'Alias', type: 'text' },
+    { label: '+CHA: ', fieldName: 'Alias', type: 'text' },
+	{ label: 'Absent(s): ', fieldName: 'Alias', type: 'text' }
+]; 
 
 export default class TechnicianAvailability extends LightningElement {
 
-	@track
-	technicians; 
+	technicians;
+	columns = COLUMNS;
 
 	@wire(getTechnicians)
 	result(res){
@@ -14,5 +20,4 @@ export default class TechnicianAvailability extends LightningElement {
 			console.log(res.data);
 		}
 	}
-
 }
