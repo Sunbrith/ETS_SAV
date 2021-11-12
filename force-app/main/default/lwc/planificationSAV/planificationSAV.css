@@ -1,78 +1,78 @@
 .div-1 {
-	width: 100%;
+  width: 100%;
 }
 .reej-input-date {
-	margin-left: var(--lwc-spacingXxLarge);
-	width: fit-content;
+  margin-left: var(--lwc-spacingXxLarge);
+  width: fit-content;
 }
 .div-2 {
-	padding-top: var(--lwc-spacingLarge);
-	margin-bottom: var(--lwc-spacingSmall);
-	text-align: left;
+  padding-top: var(--lwc-spacingLarge);
+  margin-bottom: var(--lwc-spacingSmall);
+  text-align: left;
 }
 .div-3 {
-	padding-top: var(--lwc-spacingMedium);
+  padding-top: var(--lwc-spacingMedium);
 }
 .li-1 {
-	margin-top: auto;
-	margin-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .li-2 {
-	margin-top: auto;
-	margin-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .li-3 {
-	margin-top: auto;
-	margin-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 .datatable-1 {
-	border-style: double;
-	border-color: rgb(38, 25, 88);
-    font-weight: bold;
-    font-size: 16px;
-    /* table-layout: fixed; */
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
+  border-style: double;
+  border-color: rgb(38, 25, 88);
+  font-weight: bold;
+  font-size: 16px;
+  /* table-layout: fixed; */
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
 }
 .span-1 {
-	margin-right: var(--lwc-spacingXxLarge);
-	text-align: left;
+  margin-right: var(--lwc-spacingXxLarge);
+  text-align: left;
 }
 .span-2 {
-	padding-right: var(--lwc-spacingXxLarge);
+  padding-right: var(--lwc-spacingXxLarge);
 }
 .div-4 {
-	width: 40%;
+  width: 40%;
 }
 .div-5 {
-	width: 40%;
+  width: 40%;
 }
 .button-icon-1 {
-	text-align: left;
-	border-radius: var(--lwc-borderRadiusMedium);
-	border: 1px 0px 1px 1px black solid;
-	border-right: 1px black solid;
-	border-top: 1px black solid;
-	border-left: 1px black solid;
-	border-bottom: 1px black solid;
+  text-align: left;
+  border-radius: var(--lwc-borderRadiusMedium);
+  border: 1px 0px 1px 1px black solid;
+  border-right: 1px black solid;
+  border-top: 1px black solid;
+  border-left: 1px black solid;
+  border-bottom: 1px black solid;
 }
 .button-icon-2 {
-	border-radius: var(--lwc-borderRadiusMedium);
-	border: 1px black none;
-	border-top: 1px black solid;
-	border-left: 1px black solid;
-	border-right: 1px black solid;
-	border-bottom: 1px black solid;
+  border-radius: var(--lwc-borderRadiusMedium);
+  border: 1px black none;
+  border-top: 1px black solid;
+  border-left: 1px black solid;
+  border-right: 1px black solid;
+  border-bottom: 1px black solid;
 }
 .div-6 {
 }
 .layout-1 {
-	margin-bottom: var(--lwc-spacingSmall);
-	margin-top: var(--lwc-spacingSmall);
-	margin-left: var(--lwc-spacingXSmall);
-	margin-right: var(--lwc-spacingXSmall);
-	text-align: center;
+  margin-bottom: var(--lwc-spacingSmall);
+  margin-top: var(--lwc-spacingSmall);
+  margin-left: var(--lwc-spacingXSmall);
+  margin-right: var(--lwc-spacingXSmall);
+  text-align: center;
 }
 .span-3 {
 }
@@ -81,46 +81,42 @@
 .span-5 {
 }
 .span-6 {
-	text-transform: uppercase;
+  text-transform: uppercase;
 }
 .content-table {
-	width: 100%;
-	height: auto;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 15px; 
-  }
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px; 
+}
 
 table {
-	table-layout:auto;
-	width:auto; 
-	border-style:solid;
-    font-weight:normal;
-    font-size: 16px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
+  table-layout:auto;
+  width:auto; 
+  border-style:solid;
+  font-weight:normal;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 th {
-	text-align:right;
-	font-weight: normal;
-	font-size: 16px;
-	padding: 15px;
-	border: 1px rgb(180, 180, 180) solid;
-  }
+  font-weight: normal;
+  font-size: 16px;
+  padding: 15px;
+  border: 1px rgb(180, 180, 180) solid;
+}
 
 td {
-	border: 1px inset white;
-	text-align: center;
-	white-space:normal;
-  }
+  border: 1px inset white;
+  white-space:normal;
+}
 
-  tr {
-	border: 1px rgb(180, 180, 180) solid !important;
-  }
+td.right {
+  text-align: right;
+}
 
-  .c-container {
-    border: 1px solid #d8dde6;
-    margin: 10px 0 20px 0;
+tr {
+  border: 1px rgb(180, 180, 180) solid !important;
 }

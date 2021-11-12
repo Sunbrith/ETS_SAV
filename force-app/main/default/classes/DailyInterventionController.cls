@@ -14,7 +14,7 @@ public with sharing class DailyInterventionController {
             wrapper.nom = intervention.Name;
             wrapper.cp = intervention.Account__r.BillingPostalCode;
             wrapper.solde = intervention.Account__r.AccountingBalance__c;
-            wrapper.interventionDate = Date.newInstance(intervention.StartDate__c.year(), intervention.StartDate__c.month(), intervention.StartDate__c.day());
+            wrapper.interventionDate = intervention.StartDate__c.format('dd/MM/yyyy');
             wrapper.interventionTime = intervention.StartDate__c.format('HH:mm');
             wrapper.type = intervention.Type__c;
             wrapper.qualification = intervention.Qualification__c;
@@ -37,7 +37,7 @@ public with sharing class DailyInterventionController {
         @AuraEnabled
         public Decimal solde{get;set;}
         @AuraEnabled
-        public Date interventionDate{get;set;}
+        public String interventionDate{get;set;}
         @AuraEnabled
         public String interventionTime{get;set;}
         @AuraEnabled

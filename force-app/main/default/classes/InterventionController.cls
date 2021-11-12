@@ -10,7 +10,7 @@ public class InterventionController {
 
     @AuraEnabled(cacheable=true)
     public static Intervention__c getInterventions(Id interventionId) {
-        return [
+        return[
             SELECT Id, Commentaires__c, Account__c, Account__r.CustomerCode__c, Name, Account__r.Phone, Account__r.BillingStreet, Account__r.BillingPostalCode, Account__r.BillingCity, Account__r.BillingCountry, Account__r.AdditionalBillingAddress__c, InterventionDescription__c,
             (SELECT Id, Name FROM Materiels_Fournis__r) 
             FROM Intervention__c
