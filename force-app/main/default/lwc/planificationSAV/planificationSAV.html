@@ -65,14 +65,12 @@
                                                     class="button-1" icon-name="utility:back"
                                                     onclick={backwardClick}></lightning-button>
                                             </div>
-
                                             <div
                                                 class="slds-text-align_center slds-m-right_x-small slds-m-left_x-small">
-                                                <lightning-input type="date" variant="label-hidden"
-                                                    name="input1" label="Enter a date" value={displayDate}
-                                                    onchange={PostingDateSet} placeholder={todaysDate} ></lightning-input>
+                                                <lightning-input type="date" variant="label-hidden" date-style="long"
+                                                    name="input1" label="Enter a date" value={dateDisplay}
+                                                    onchange={PostingDateSet}></lightning-input>
                                             </div>
-
                                             <div class="slds-text-align_center">
                                                 <lightning-button label="Suivant" icon-position="right"
                                                     class="button-1" icon-name="utility:forward"
